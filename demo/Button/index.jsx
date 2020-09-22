@@ -1,5 +1,3 @@
-import { Button } from "newda-lib";
-
 require('./style');
 
 function Custom() {
@@ -22,8 +20,7 @@ function Default() {
 
 function Index() {
     return <div>
-        <Custom />
-        <Default />
+
     </div>
 }
 
