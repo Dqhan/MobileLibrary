@@ -1,6 +1,6 @@
 import Introduction from '../Introduction';
 import Member from '../Member';
-
+import Button from '../Button';
 function Home() {
 
     const [key, setKey] = React.useState("2");
@@ -23,7 +23,7 @@ function Home() {
             case "5":
                 return <div>未完成</div>;
             case "6":
-                return <div>未完成</div>;
+                return <Button />;
             case "7":
                 return <div>未完成</div>;
             case "8":
@@ -72,12 +72,12 @@ function Home() {
             <Menu.SubMenu key="2" title="简介"></Menu.SubMenu>
             <Menu.SubMenu key="3" title="成员"></Menu.SubMenu>
             <Menu.SubMenu key="4" title="Components">
-                <Menu.MenuItemGroup title="Basic">
+                <Menu.MenuItemGroup title="原子组件">
                     <Menu.Item key="5">Icon</Menu.Item>
                     <Menu.Item key="6">Button</Menu.Item>
                     <Menu.Item key="7">Layout</Menu.Item>
                 </Menu.MenuItemGroup>
-                <Menu.MenuItemGroup title="Form">
+                <Menu.MenuItemGroup title="容器组件">
                     <Menu.Item key="8">Input</Menu.Item>
                     <Menu.Item key="9">Radio</Menu.Item>
                     <Menu.Item key="10">Checkbox</Menu.Item>
@@ -90,7 +90,7 @@ function Home() {
                     <Menu.Item key="17">MutiCombobox</Menu.Item>
                     <Menu.Item key="18">Upload</Menu.Item>
                 </Menu.MenuItemGroup>
-                <Menu.MenuItemGroup title="View">
+                <Menu.MenuItemGroup title="场景组件">
                     <Menu.Item key="19">Alert</Menu.Item>
                     <Menu.Item key="20">Calendar</Menu.Item>
                     <Menu.Item key="21">Dialog</Menu.Item>
@@ -100,7 +100,7 @@ function Home() {
                     <Menu.Item key="25">TabControl</Menu.Item>
                     <Menu.Item key="26">Tree</Menu.Item>
                 </Menu.MenuItemGroup>
-                <Menu.MenuItemGroup title="Navigation">
+                <Menu.MenuItemGroup title="业务组件">
                     <Menu.Item key="27">Menu</Menu.Item>
                     <Menu.Item key="28">Breadcrumb</Menu.Item>
                     <Menu.Item key="29">Steps</Menu.Item>

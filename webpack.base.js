@@ -2,14 +2,16 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: "development",
     entry: './index.js',
     output: {
-        path: path.resolve(__dirname, './build/'),
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
+        publicPath: '/'
     },
     devtool: "source-map",
     module: {
@@ -39,7 +41,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './index.html'
+            template: './index.html',
+            filename: 'index.html'
         }),
         new webpack.ProvidePlugin({
             React: 'react',
@@ -48,7 +51,15 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'bundle.css'
         }),
-        new CleanWebpackPlugin()
+        // new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns:[
+               {
+                from: '3th-lib/showdown.min.js',
+                to: ''
+               }
+            ]
+        })
     ],
     resolve: {
         extensions: [".js", ".jsx", ".json", ".css", ".less"]
@@ -59,7 +70,7 @@ module.exports = {
         },
         disableHostCheck: true,
         historyApiFallback: true,
-        contentBase: path.resolve(__dirname, 'build'),
+        contentBase: path.resolve(__dirname, 'dist'),
         publicPath: '/',
         port: 9527,
         proxy: {
