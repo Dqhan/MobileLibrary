@@ -1,6 +1,7 @@
 import Introduction from '../Introduction';
 import Member from '../Member';
 import Button from '../Button';
+import Test from '../button.vue';
 function Home() {
 
     const [key, setKey] = React.useState("2");
@@ -23,7 +24,7 @@ function Home() {
             case "5":
                 return <div>未完成</div>;
             case "6":
-                return <Button />;
+                return <Test />;
             case "7":
                 return <div>未完成</div>;
             case "8":

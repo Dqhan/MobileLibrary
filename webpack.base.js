@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
     mode: "development",
@@ -19,6 +20,11 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
                 exclude: /node_modules/,
             },
             {
@@ -40,6 +46,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             template: './index.html',
             filename: 'index.html'
@@ -56,6 +63,9 @@ module.exports = {
             patterns:[
                {
                 from: '3th-lib/showdown.min.js',
+                to: ''
+               },{
+                from: 'demo/button.html',
                 to: ''
                }
             ]
