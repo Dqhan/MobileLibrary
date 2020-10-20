@@ -8,8 +8,10 @@ module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: './src/components/index.js',
   output: {
-    path: path.resolve(__dirname, './dist/'),
+    path: path.resolve(__dirname, '..', './dist/'),
     filename: 'mobile-bundle.js',
+    libraryTarget: "umd",
+    library: "aui-library",
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],

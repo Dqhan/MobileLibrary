@@ -5,7 +5,7 @@
   "author": "deqi.han<deqi.han@accenture.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack --config build/webpack.dev.conf.js && webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js",
     "lib": "webpack --config build/webpack.lib.js"

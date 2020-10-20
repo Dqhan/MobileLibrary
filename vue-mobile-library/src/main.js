@@ -7,9 +7,13 @@ Vue.config.productionTip = false
 
 Vue.use(Vant);
 
+require('./register')
+
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })

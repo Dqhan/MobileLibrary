@@ -2,25 +2,34 @@
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
+const fs = require('fs')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
+const pagesDirPath = path.resolve(__dirname, `../src/demoComponentsEntry`)
 
+const getEntries = () => {
+  let result = fs.readdirSync(pagesDirPath);
+  let entry = {};
+  result.forEach(item => {
+    item = item.replace('.js', '')
+    entry[item] = path.resolve(__dirname, `../src/demoComponentsEntry/${item}.js`);
+  });
+  return entry;
+}
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: {
-    app: './src/main.js'
-  },
+  entry: getEntries(),
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath: process.env.NODE_ENV === 'production' ?
+      config.build.assetsPublicPath :
+      config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -30,8 +39,7 @@ module.exports = {
     }
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
