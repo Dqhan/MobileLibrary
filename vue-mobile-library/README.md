@@ -1,4 +1,4 @@
-# library
+# vue-mobile-library
 
 > A Vue.js project
 

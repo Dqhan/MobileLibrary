@@ -8,8 +8,8 @@ class Button extends BaseComponent {
         super.componentDidMount()
         this.loadTarget({
             md: 'button',
-            // src: 'https://youzan.github.io/vant/mobile.html#/zh-CN/button#dai-ma-yan-shi'
-            src: './button.html'
+            src: 'https://youzan.github.io/vant/mobile.html#/zh-CN/button#dai-ma-yan-shi'
+            // src: './button.html'
         })
     }
 }
