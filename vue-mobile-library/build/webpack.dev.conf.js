@@ -31,7 +31,7 @@ const generatorHtmlWebpackPlugins = () => {
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
-
+console.log(__dirname)
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
@@ -45,14 +45,15 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   // these devServer options should be customized in /config/index.js
   devServer: {
     clientLogLevel: 'warning',
-    historyApiFallback: {
-      rewrites: [{
-        from: /.*/,
-        to: path.posix.join(config.dev.assetsPublicPath, 'index.html')
-      }, ],
-    },
+    // historyApiFallback: {
+    //   rewrites: [{
+    //     from: /.*/,
+    //     to: path.posix.join(config.dev.assetsPublicPath, 'index.html')
+    //   }, ],
+    // },
     hot: true,
-    contentBase: false, // since we use CopyWebpackPlugin.
+    contentBase: path.resolve(__dirname, '../dist/'), // since we use CopyWebpackPlugin.
+    overlay: true,
     compress: true,
     host: HOST || config.dev.host,
     port: PORT || config.dev.port,
@@ -84,6 +85,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       template: 'index.html',
       filename: 'index.html',
+      chunks: []
     })
   ]
 })

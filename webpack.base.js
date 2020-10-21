@@ -64,9 +64,6 @@ module.exports = {
                {
                 from: '3th-lib/showdown.min.js',
                 to: ''
-               },{
-                from: 'demo/button.html',
-                to: ''
                }
             ]
         })
