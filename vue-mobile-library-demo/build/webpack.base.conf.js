@@ -9,20 +9,27 @@ function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
+const pagesDirPath = path.resolve(__dirname, `../src/demoComponentsEntry`)
+
+const getEntries = () => {
+  let result = fs.readdirSync(pagesDirPath);
+  let entry = {};
+  result.forEach(item => {
+    item = item.replace('.js', '')
+    entry[item] = path.resolve(__dirname, `../src/demoComponentsEntry/${item}.js`);
+  });
+  return entry;
+}
+
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: './src/index.js',
-  // output: {
-  //   path: config.build.assetsRoot,
-  //   filename: '[name].js',
-  //   publicPath: process.env.NODE_ENV === 'production' ?
-  //     config.build.assetsPublicPath : config.dev.assetsPublicPath
-  // },
+  // entry: getEntries(),
+  entry: path.resolve(__dirname, '../src/main.js'),
   output: {
-    path: path.resolve(__dirname, '..', './dist/'),
-    filename: 'mobile-lib-bundle.js',
-    libraryTarget: "umd",
-    library: "aui-library",
+    path: config.build.assetsRoot,
+    filename: '[name].js',
+    publicPath: process.env.NODE_ENV === 'production' ?
+      config.build.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],

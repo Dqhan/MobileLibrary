@@ -10,7 +10,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 const fs = require('fs')
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const pagesDirPath = path.resolve(__dirname, `../src/demoComponentsEntry`)
+
+const generatorHtmlWebpackPlugins = () => {
+  let arr = [];
+  let result = fs.readdirSync(pagesDirPath);
+  result.forEach(item => {
+    item = item.replace('.js', '')
+    console.log(item)
+    arr.push(new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, `../index.html`),
+      filename: `${item}.html`,
+      chunks: [item]
+    }));
+  });
+  return arr;
+}
+
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -19,8 +36,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.dev.cssSourceMap,
-      usePostCSS: true,
-      extract: true
+      usePostCSS: true
     })
   },
   // cheap-module-eval-source-map is faster for development
@@ -65,11 +81,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       to: config.dev.assetsSubDirectory,
       ignore: ['.*']
     }]),
+    // ...generatorHtmlWebpackPlugins(),
     new HtmlWebpackPlugin({
       template: 'index.html',
       filename: 'index.html'
-    }),
-    new ExtractTextPlugin("mobile-lib-bundle.css")
+    })
   ]
 })
 

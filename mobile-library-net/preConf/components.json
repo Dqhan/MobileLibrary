@@ -1,0 +1,37 @@
+{
+  "subMenu": [
+    {
+      "name": "简介",
+      "key": "00",
+      "src": "../Introduction",
+      "url": "/Introduction",
+      "component": "Introduction"
+    },
+    {
+      "name": "成员",
+      "key": "01",
+      "src": "../Member",
+      "url": "/Member",
+      "component": "Member"
+    },
+    {
+      "name": "Components",
+      "key": "02",
+      "src": "../Introduction",
+      "url": "/Introduction",
+      "component": "Member"
+    }
+  ],
+  "AtomicComponents": [
+    {
+      "name": "aui-button",
+      "key": "0",
+      "src": "../Button",
+      "url": "/Button",
+      "component": "Button"
+    }
+  ],
+  "ContainerComponents": [],
+  "SenseComponents": [],
+  "BusinessComponents": []
+}

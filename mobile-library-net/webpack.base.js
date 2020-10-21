@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
     mode: "development",
@@ -46,7 +45,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             template: './index.html',
             filename: 'index.html'
