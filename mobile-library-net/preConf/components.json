@@ -2,36 +2,81 @@
   "subMenu": [
     {
       "name": "简介",
-      "key": "00",
-      "src": "../Introduction",
-      "url": "/Introduction",
+      "key": "0",
       "component": "Introduction"
     },
     {
       "name": "成员",
-      "key": "01",
-      "src": "../Member",
-      "url": "/Member",
+      "key": "1",
       "component": "Member"
     },
     {
       "name": "Components",
-      "key": "02",
-      "src": "../Introduction",
-      "url": "/Introduction",
-      "component": "Member"
+      "key": "2",
+      "component": "Components"
     }
   ],
   "AtomicComponents": [
     {
       "name": "aui-button",
-      "key": "0",
-      "src": "../Button",
-      "url": "/Button",
+      "key": "00",
       "component": "Button"
+    },
+    {
+      "name": "aui-cell",
+      "key": "01",
+      "component": "Cell"
+    },
+    {
+      "name": "aui-search",
+      "key": "02",
+      "component": "Search"
     }
   ],
-  "ContainerComponents": [],
-  "SenseComponents": [],
-  "BusinessComponents": []
+  "ContainerComponents": [
+    {
+      "name": "aui-tabBar",
+      "key": "000",
+      "component": "TabBar"
+    },
+    {
+      "name": "aui-controlPanel",
+      "key": "001",
+      "component": "ControlPanel"
+    },
+    {
+      "name": "aui-datePicker",
+      "key": "002",
+      "component": "DatePicker"
+    },
+    {
+      "name": "aui-list",
+      "key": "003",
+      "component": "List"
+    },
+    {
+      "name": "aui-tabBar",
+      "key": "004",
+      "component": "TabBar"
+    },
+    {
+      "name": "aui-tabControl",
+      "key": "005",
+      "component": "TabControl"
+    }
+  ],
+  "SenseComponents": [
+    {
+      "name": "aui-pageDetail",
+      "key": "0000",
+      "component": "PageDetail"
+    }
+  ],
+  "BusinessComponents": [
+    {
+      "name": "aui-defaultFilter",
+      "key": "00000",
+      "component": "DefaultFilter"
+    }
+  ]
 }

@@ -4,7 +4,7 @@ class BaseComponent extends React.Component {
     super(props);
     this.state = {
       target: "",
-      src: "",
+      src: ""
     };
   }
 
@@ -14,7 +14,7 @@ class BaseComponent extends React.Component {
     let { md, src } = props;
     this.setState({
       target: md,
-      src: src,
+      src: src
     });
   }
   render() {
@@ -35,5 +35,7 @@ class BaseComponent extends React.Component {
     );
   }
 }
+
+window.BaseComponent = BaseComponent;
 
 export default BaseComponent;

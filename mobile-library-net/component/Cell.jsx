@@ -1,4 +1,4 @@
-class Button extends BaseComponent {
+class Cell extends BaseComponent {
     constructor(props) {
         super(props)
     }
@@ -6,10 +6,10 @@ class Button extends BaseComponent {
     componentDidMount(){
         super.componentDidMount()
         this.loadTarget({
-            md: 'aui-button',
-            src: 'http://localhost:8081/#/button'
+            md: 'aui-cell',
+            src: 'http://localhost:8081/#/aui-cell'
         })
     }
 }
 
-export default Button;
+export default Cell;

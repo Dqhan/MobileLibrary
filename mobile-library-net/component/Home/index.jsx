@@ -1,9 +1,11 @@
+import "../Base";
+
 import json from "../../preConf/components.json";
 
 import Components from "../../preConf/componentsImport";
 
 function Home() {
-  const [key, setKey] = React.useState("00");
+  const [key, setKey] = React.useState("0");
 
   const handleClick = e => {
     console.log(e.eventKey);
@@ -14,17 +16,16 @@ function Home() {
     var atomicComponents = json.AtomicComponents;
     var containerComponents = json.ContainerComponents;
     var senseComponents = json.SenseComponents;
-    var businessComponents = json.BusinessComponents;
     var subMenu = json.subMenu;
+    var businessComponents = json.BusinessComponents;
     var components = [].concat(
       atomicComponents,
       containerComponents,
       senseComponents,
-      businessComponents,
-      subMenu
+      subMenu,
+      businessComponents
     );
     var target = components.filter(c => c.key === key)[0];
-    console.log(Components);
     var Component = Components[target.component];
     return <Component />;
   };
@@ -50,11 +51,10 @@ function Home() {
   };
   return (
     <div className="home">
-      <Menu defaultKey="1" onClick={handleClick}>
-        {/* <Menu.SubMenu key="1" title="Mobile Library"></Menu.SubMenu> */}
-        <Menu.SubMenu key="00" title="简介"></Menu.SubMenu>
-        <Menu.SubMenu key="01" title="成员"></Menu.SubMenu>
-        <Menu.SubMenu key="02" title="Components">
+      <Menu defaultKey="0" onClick={handleClick}>
+        <Menu.SubMenu key="0" title="简介"></Menu.SubMenu>
+        <Menu.SubMenu key="1" title="成员"></Menu.SubMenu>
+        <Menu.SubMenu key="2" title="Components">
           <Menu.MenuItemGroup title="原子组件">
             {renderAtomicComponents()}
           </Menu.MenuItemGroup>
