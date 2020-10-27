@@ -1,4 +1,5 @@
 <script>
+require("./style.less");
 export default {
   name: "aui-button",
 
@@ -58,16 +59,8 @@ export default {
       this.$emit("onClickCallback", event);
     },
   },
-  watch: {
-    text: {
-      handler(newValue, oldValue) {
-          var a = newValue;
-          var n = oldValue;
-      },
-    },
-  },
+  watch: {},
   render(createElement) {
-    console.log(this.$props);
     let {
       text,
       type,

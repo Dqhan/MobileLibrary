@@ -1,8 +1,10 @@
+import AuiButton from './components/aui-button/index.vue';
+import AuiTabBarIndex from './components/aui-tabBar/index.vue'
 
-import AuiButton from './components/aui-button';
-import AuiTable from './components/aui-table';
+const {AuiTabBar, AuiTabBarItem} =  AuiTabBarIndex
 
 export {
   AuiButton,
-  AuiTable
+  AuiTabBar,
+  AuiTabBarItem
 }
